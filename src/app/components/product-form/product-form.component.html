@@ -1,0 +1,38 @@
+<form (ngSubmit)="saveProduct()">
+  <mat-form-field appearance="fill">
+    <mat-label>Código</mat-label>
+    <input matInput [(ngModel)]="product.code" name="code" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Preço</mat-label>
+    <input matInput type="number" [(ngModel)]="product.price" name="price" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Descrição</mat-label>
+    <input matInput [(ngModel)]="product.description" name="description" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Departamento</mat-label>
+    <mat-select [(ngModel)]="product.departmentId" name="departmentId" required>
+      <mat-option *ngFor="let dept of departments" [value]="dept.id">
+        {{ dept.description }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Status</mat-label>
+    <mat-select [(ngModel)]="product.status" name="status" required>
+      <mat-option [value]="true">Ativo</mat-option>
+      <mat-option [value]="false">Inativo</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div mat-dialog-actions>
+    <button mat-button type="button" (click)="closeDialog()">Cancelar</button>
+    <button mat-raised-button color="primary" type="submit">{{ isEditMode ? 'Atualizar' : 'Salvar' }}</button>
+  </div>
+</form>

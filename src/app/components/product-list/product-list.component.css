@@ -1,0 +1,28 @@
+.product-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mat-table {
+  width: 100%;
+}
+
+.mat-column-actions {
+  text-align: center;
+}
+
+button {
+  margin: 0 4px;
+}
+
+@media (max-width: 600px) {
+  .product-list-container {
+    padding: 0 16px;
+  }
+
+  button {
+    width: 100%;
+    margin: 8px 0;
+  }
+}
